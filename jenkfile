@@ -3,7 +3,7 @@ pipeline{
 stages {
 stage('git') {
 steps {
-git '
+git 'https://github.com/Nandhini0307/program3.git'
              }
           }
       }
