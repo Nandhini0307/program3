@@ -5,7 +5,7 @@ pipeline {
     	stage('Checkout') {
         	steps {
             	// Checkout code from Git repository
-            	git url:'https://github.com/Nandhini0307/program3.git’, branch: 'main'
+            	git url: 'https://github.com/johnsamuel05/jenkin.git', branch: 'main'
         	}
     	}
    	 
@@ -13,7 +13,7 @@ pipeline {
         	steps {
             	// Example build step, replace with your build commands
             	echo 'Building...'
-            	
+            	// sh 'make' // Uncomment and replace with your build command
         	}
     	}
    	 
@@ -21,7 +21,7 @@ pipeline {
         	steps {
             	// Example test step, replace with your test commands
             	echo 'Testing...'
-            	
+            	// sh 'make test' // Uncomment and replace with your test command
         	}
     	}
    	 
@@ -29,7 +29,7 @@ pipeline {
         	steps {
             	// Example deploy step, replace with your deploy commands
             	echo 'Deploying...'
-            
+            	// sh 'make deploy' // Uncomment and replace with your deploy command
         	}
     	}
 	}
