@@ -1,10 +1,45 @@
-pipeline{
-  agent any 
-stages {
-stage('git') {
-steps {
-git 'https://github.com/Nandhini0307/program3.git'
-             }
-          }
-      }
+pipeline {
+	agent any
+
+	stages {
+    	stage('Checkout') {
+        	steps {
+            	// Checkout code from Git repository
+            	git url: 'https://github.com/Nandhini0307/program3.git’, branch: 'main'
+        	}
+    	}
+   	 
+    	stage('Build') {
+        	steps {
+            	// Example build step, replace with your build commands
+            	echo 'Building...'
+            	
+        	}
+    	}
+   	 
+    	stage('Test') {
+        	steps {
+            	// Example test step, replace with your test commands
+            	echo 'Testing...'
+            	
+        	}
+    	}
+   	 
+    	stage('Deploy') {
+        	steps {
+            	// Example deploy step, replace with your deploy commands
+            	echo 'Deploying...'
+            
+        	}
+    	}
+	}
+
+	post {
+    	success {
+        	echo 'Pipeline completed successfully!'
+    	}
+    	failure {
+        	echo 'Pipeline failed!'
+    	}
+	}
 }
