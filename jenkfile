@@ -21,7 +21,7 @@ pipeline {
                     env.JAVA_HOME = javaHome
                     env.PATH = "${javaHome}/bin:${env.PATH}"
                     try {
-                        sh 'javac src/main/java/com/yourcompany/YourJavaFile.java'
+                        sh 'javac prg3.java'
                     } catch (Exception e) {
                         error "Compilation failed: ${e.message}"
                     }
@@ -36,7 +36,7 @@ pipeline {
                     env.JAVA_HOME = javaHome
                     env.PATH = "${javaHome}/bin:${env.PATH}"
                     try {
-                        sh 'java -cp src/main/java com.yourcompany.YourJavaFile'
+                        sh 'java -cp prg3.java'
                     } catch (Exception e) {
                         error "Execution failed: ${e.message}"
                     }
