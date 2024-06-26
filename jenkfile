@@ -2,9 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Clone Repository') {
             steps {
-                git url:'https://github.com/Nandhini0307/program3.git', branch:'main'
+                script {
+                    try {
+                        git 'https://github.com/Nandhini0307/program3.git'
+                    } catch (Exception e) {
+                        error "Failed to clone repository: ${e.message}"
+                    }
+                }
             }
         }
 
@@ -13,8 +19,12 @@ pipeline {
                 script {
                     def javaHome = tool name: 'jdk-22', type: 'jdk'
                     env.JAVA_HOME = javaHome
-                    env.PATH = "C:/Program Files/Java/jdk-22"
-                    sh 'javac prg3.java'
+                    env.PATH = "${javaHome}/bin:${env.PATH}"
+                    try {
+                        sh 'javac src/main/java/com/yourcompany/YourJavaFile.java'
+                    } catch (Exception e) {
+                        error "Compilation failed: ${e.message}"
+                    }
                 }
             }
         }
@@ -24,8 +34,12 @@ pipeline {
                 script {
                     def javaHome = tool name: 'jdk-22', type: 'jdk'
                     env.JAVA_HOME = javaHome
-                    env.PATH = "C:/Program Files/Java/jdk-22"
-                    sh 'java -cp prg3.java'
+                    env.PATH = "${javaHome}/bin:${env.PATH}"
+                    try {
+                        sh 'java -cp src/main/java com.yourcompany.YourJavaFile'
+                    } catch (Exception e) {
+                        error "Execution failed: ${e.message}"
+                    }
                 }
             }
         }
