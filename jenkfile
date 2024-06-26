@@ -14,7 +14,7 @@ pipeline {
                     def javaHome = tool name: 'JDK 11', type: 'jdk'
                     env.JAVA_HOME = javaHome
                     env.PATH = "${javaHome}/bin:${env.PATH}"
-                    sh 'javac src/main/java/com/yourcompany/YourJavaFile.java'
+                    sh 'javac prg3.java'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
                     def javaHome = tool name: 'JDK 11', type: 'jdk'
                     env.JAVA_HOME = javaHome
                     env.PATH = "${javaHome}/bin:${env.PATH}"
-                    sh 'java -cp src/main/java com.yourcompany.YourJavaFile'
+                    sh 'java -cp prg3.java'
                 }
             }
         }
