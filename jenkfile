@@ -11,9 +11,9 @@ pipeline {
         stage('Compile Java') {
             steps {
                 script {
-                    def javaHome = tool name: 'JDK 11', type: 'jdk'
+                    def javaHome = tool name: 'JDK 22', type: 'jdk'
                     env.JAVA_HOME = javaHome
-                    env.PATH = "${javaHome}/bin:${env.PATH}"
+                    env.PATH = "C:\Program Files\Java\jdk-22"
                     sh 'javac prg3.java'
                 }
             }
@@ -22,9 +22,9 @@ pipeline {
         stage('Run Java') {
             steps {
                 script {
-                    def javaHome = tool name: 'JDK 11', type: 'jdk'
+                    def javaHome = tool name: 'JDK 22', type: 'jdk'
                     env.JAVA_HOME = javaHome
-                    env.PATH = "${javaHome}/bin:${env.PATH}"
+                    env.PATH = "C:\Program Files\Java\jdk-22"
                     sh 'java -cp prg3.java'
                 }
             }
