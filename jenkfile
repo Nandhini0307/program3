@@ -13,7 +13,7 @@ pipeline {
                 script {
                     def javaHome = tool name: 'JDK 22', type: 'jdk'
                     env.JAVA_HOME = javaHome
-                    env.PATH = "C:\Program Files\Java\jdk-22"
+                    env.PATH = "C:/Program Files/Java/jdk-22"
                     sh 'javac prg3.java'
                 }
             }
@@ -24,7 +24,7 @@ pipeline {
                 script {
                     def javaHome = tool name: 'JDK 22', type: 'jdk'
                     env.JAVA_HOME = javaHome
-                    env.PATH = "C:\Program Files\Java\jdk-22"
+                    env.PATH = "C:/Program Files/Java/jdk-22"
                     sh 'java -cp prg3.java'
                 }
             }
